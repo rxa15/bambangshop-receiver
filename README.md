@@ -66,7 +66,7 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   ✅ Commit: `Create Notification database and Notification repository struct skeleton.`
     -   ✅ Commit: `Implement add function in Notification repository.`
     -   ✅ Commit: `Implement list_all_as_string function in Notification repository.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
+    -   ✅ Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
 -   **STAGE 3: Implement services and controllers**
     -   [ ] Commit: `Create Notification service struct skeleton.`
     -   [ ] Commit: `Implement subscribe function in Notification service.`
@@ -87,9 +87,11 @@ This is the place for you to write reflections:
 #### Reflection Subscriber-1
 1. In this tutorial, we used RwLock<> to synchronise the use of Vec of Notifications. Explain why it is necessary for this case, and explain why we do not use Mutex<> instead?
 
+`RwLock<>` and `Mutex<>` are Rust principles used to synchronize data accessed by multiple threads. `RwLock<>` permits multiple threads to read data simultaneously, while `Mutex<>` restricts access to a single thread. In this tutorial, `RwLock<>` is used to allow concurrent read access by multiple threads to Vec Notifications while ensuring exclusive writing. This setup is particularly effective for data structures with higher read than write frequency. Unlike `Mutex<>`, which allows only one thread access at a time, `RwLock<>` accommodates multiple readers or a single writer. Hence, `RwLock<>` is preferable for situations with high read frequency and low write frequency, while Mutex<> excels in scenarios with balanced read and write frequencies.
 
 2. In this tutorial, we used lazy_static external library to define Vec and DashMap as a “static” variable. Compared to Java where we can mutate the content of a static variable via a static function, why did not Rust allow us to do so?
 
+In Rust, static variables are by default immutable, meaning their content cannot be mutated once initialized. The `lazy_static` external library in Rust provides a workaround for initializing static variables lazily at runtime, but even with `lazy_static`, once initialized, the content of a static variable remains immutable by default.
 
 #### Reflection Subscriber-2
 1. Have you explored things outside of the steps in the tutorial, for example: src/lib.rs? If not, explain why you did not do so. If yes, explain things that you have learned from those other parts of code.
