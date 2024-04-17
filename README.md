@@ -68,16 +68,16 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   ✅ Commit: `Implement list_all_as_string function in Notification repository.`
     -   ✅ Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
 -   **STAGE 3: Implement services and controllers**
-    -   [ ] Commit: `Create Notification service struct skeleton.`
-    -   [ ] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Commit: `Implement receive_notification function in Notification service.`
-    -   [ ] Commit: `Implement receive function in Notification controller.`
-    -   [ ] Commit: `Implement list_messages function in Notification service.`
-    -   [ ] Commit: `Implement list function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
+    -   ✅ Commit: `Create Notification service struct skeleton.`
+    -   ✅ Commit: `Implement subscribe function in Notification service.`
+    -   ✅ Commit: `Implement subscribe function in Notification controller.`
+    -   ✅ Commit: `Implement unsubscribe function in Notification service.`
+    -   ✅ Commit: `Implement unsubscribe function in Notification controller.`
+    -   ✅ Commit: `Implement receive_notification function in Notification service.`
+    -   ✅ Commit: `Implement receive function in Notification controller.`
+    -   ✅ Commit: `Implement list_messages function in Notification service.`
+    -   ✅ Commit: `Implement list function in Notification controller.`
+    -   ✅ Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -96,10 +96,18 @@ In Rust, static variables are by default immutable, meaning their content cannot
 #### Reflection Subscriber-2
 1. Have you explored things outside of the steps in the tutorial, for example: src/lib.rs? If not, explain why you did not do so. If yes, explain things that you have learned from those other parts of code.
 
+Yes, I have explored some parts from src/lib.rs, for instance the `Default` implementation for `AppConfig`. In the implementation, the default() function defines the default behavior for creating an instance of the AppConfig struct. It returns an instance of AppConfig with predefined default values for its fields:
 
+instance_root_url: Initialized with the string "http://localhost:8001".
+publisher_root_url: Initialized with the string "http://localhost:8000".
+instance_name: Initialized with the string "BambangShop Receiver".
+
+If an instance of AppConfig is created without explicitly specifying values for its fields, this implementation of Default will be invoked to provide default values for each field. This simplifies the process of creating instances of AppConfig by providing sensible default values that can be overridden if needed.
 
 2. Since you have completed the tutorial by now and have tried to test your notification system by spawning multiple instances of Receiver, explain how Observer pattern eases you to plug in more subscribers. How about spawning more than one instance of Main app, will it still be easy enough to add to the system?
 
+The Observer pattern streamlines the process of adding new subscribers to the notification system by offering a flexible and easily scalable architecture. In this model, each subscriber serves as an observer, receiving notifications from the main application, or subject, without necessitating alterations to the system's core functions. It will still be easy enough to spawn more than one instance of Main app because the Observer pattern makes it easy for us to add more subscribers.
 
 3. Have you tried to make your own Tests, or enhance documentation on your Postman collection? If you have tried those features, tell us whether it is useful for your work (it can be your tutorial work or your Group Project).
 
+While I have not yet delved into creating my own tests or refining my Postman collection, my familiarity with Postman since last semester has laid a solid groundwork. Nonetheless, I believe that doing so would significantly enhance our ability to monitor the program's progress, particularly for collaborative group projects. Testing would enable each group member to verify whether the program has delivered the expected responses accurately.
